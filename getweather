@@ -1,0 +1,19 @@
+#!/bin/sh
+
+round(){
+awk '{print ($1-int($1)>0)?int($1)+1:int($1)}'
+}
+
+lat="2.71"
+lon="3.14"
+apikey=""
+units="metric"
+if [ ! -z "$apikey" ]; then
+    json=$(curl -s "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=$units&appid=$apikey")
+    echo "Weather for ($lat, $lon)"
+    echo -n "Temperature: "; echo $json|jq '.main.temp'|round
+    echo -n "Feels like: "; echo $json|jq '.main.feels_like'|round
+    echo -n "High: "; echo $json|jq '.main.temp_max'|round
+    echo -n "Low: "; echo $json|jq '.main.temp_min'|round
+    echo -n "Description: "; echo -n $json|jq -rj '.weather[].main'; echo -n " / "; echo -n $json|jq -r '.weather[].description'
+fi
