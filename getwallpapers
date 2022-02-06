@@ -2,7 +2,7 @@
 if [ $# -gt 0 ]; then
 	mkdir -p $HOME/wallpapers
 	search=$(urlenc $*)
-	data=$(curl -s https://wallhaven.cc/api/v1/search?q=$*)
+	data=$(curl -s "https://wallhaven.cc/api/v1/search?q=$search")
 	originals=$(echo $data|jq -r '.data[].path')
 	for o in $originals
 	do
