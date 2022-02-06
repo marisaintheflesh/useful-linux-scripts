@@ -1,7 +1,8 @@
 #!/bin/sh
-if [ ! -z "$1" ]; then
+if [ $# -gt 0 ]; then
 	mkdir -p $HOME/wallpapers
-	data=$(curl -s https://wallhaven.cc/api/v1/search?q=$1)
+	search=$(urlenc $*)
+	data=$(curl -s https://wallhaven.cc/api/v1/search?q=$*)
 	originals=$(echo $data|jq -r '.data[].path')
 	for o in $originals
 	do
