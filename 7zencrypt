@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ $# -gt 0 ]; then
+	pass=$(randpass)
+	file=$(randpass|head -c 64)
+	for arg in "$@"; do
+		if [ ! -e "$arg" ]; then
+			echo "$arg" does not exist.
+			exit
+		fi
+	done
+	7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=32m -ms=on -mhe=on -p"$pass" "$file".7z $*
+	echo "File compressed and encrypted."
+	echo "Filename: $file.7z"
+	echo "Password: $pass"
+fi
