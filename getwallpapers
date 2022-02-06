@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ ! -z "$1" ]; then
+	mkdir -p $HOME/wallpapers
+	data=$(curl -s https://wallhaven.cc/api/v1/search?q=$1)
+	originals=$(echo $data|jq -r '.data[].path')
+	for o in $originals
+	do
+		wget -q -P $HOME/wallpapers "$o"
+	done
+fi

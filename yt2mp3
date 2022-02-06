@@ -1,0 +1,5 @@
+#!/bin/sh
+for v in "$@"
+do
+  youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "$v"
+done

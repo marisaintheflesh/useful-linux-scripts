@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mkdir -p "$HOME/Playlists/"
+tmpfile=$(mktemp -q)
+outfile="$HOME/Playlists/Muzak.m3u"
+rm -rf "$outfile"
+touch $outfile
+
+for f in $HOME/Muzak/*.mp3
+do
+	echo "$f" >> $tmpfile
+done
+
+data=$(pysort<$tmpfile)
+
+printf "$data" > $outfile
+
+rm -rf $tmpfile
