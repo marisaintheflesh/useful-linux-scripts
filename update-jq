@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -o "$HOME/bin/jq" -sL $(curl -sL "https://api.github.com/repos/stedolan/jq/releases/latest" | grep -i '"browser_download_url":' | grep jq-linux64 | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*") && chmod +x "$HOME/bin/jq"
