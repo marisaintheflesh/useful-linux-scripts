@@ -3,3 +3,4 @@
 sudo curl -s -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl
 sudo chmod a+rx /usr/bin/youtube-dl
 sudo ln -sf /usr/bin/youtube-dl /usr/bin/yt-dl
+sudo ln -sf /usr/bin/youtube-dl /usr/bin/ytdl
