@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo curl -s -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl
-sudo chmod a+rx /usr/bin/youtube-dl
-sudo ln -sf /usr/bin/youtube-dl /usr/bin/yt-dl
-sudo ln -sf /usr/bin/youtube-dl /usr/bin/ytdl
+sudo curl -s -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/bin/yt-dlp
+sudo chmod a+rx /usr/bin/yt-dlp
+sudo ln -sf /usr/bin/yt-dlp /usr/bin/ytdl
+sudo ln -sf /usr/bin/yt-dlp /usr/bin/youtube-dl
