@@ -2,5 +2,5 @@
 
 for v in "$@"
 do
-  youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=$v"
+  yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=$v"
 done
